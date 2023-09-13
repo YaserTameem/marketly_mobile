@@ -20,9 +20,16 @@ final void Function() ontap;
           width: 193,
           height: 58,
           decoration: BoxDecoration(
+            boxShadow: const [
+              BoxShadow(
+                blurRadius: 4,
+                color: Colors.black,
+                offset: Offset(0,3)
+              )
+            ],
               borderRadius: BorderRadius.circular(99),
               gradient: LinearGradient(
-                  colors: [kMaincolor1, kMaincolor2], stops: [.3, 9])),
+                  colors: [kMaincolor1, kMaincolor2], stops: const [.3, 9])),
           child: Text(
             title,
             textAlign: TextAlign.center,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:marketly_mobile/modules/auth_screens/login_screen.dart';
+import 'package:marketly_mobile/modules/auth_screens/signup_screen.dart';
+import 'package:marketly_mobile/modules/settings/profile_screen.dart';
 import 'package:marketly_mobile/modules/splash_screens/onboarding_screen.dart';
 import 'package:marketly_mobile/modules/splash_screens/splash_screen.dart';
 
@@ -25,6 +27,8 @@ class MyApp extends StatelessWidget {
         SplashScreen.screenRoute: (context) => const SplashScreen(),
         OneBoardingScreen.screenRoute: (context) => const OneBoardingScreen(),
         LoginScreen.screenRoute:(context)=> const LoginScreen(),
+        ProfileScreen.screenRoute : (context) => const ProfileScreen(),
+       SignUpScreen.screenRoute : (context) => const SignUpScreen(),
       },
     );
   }
