@@ -21,6 +21,8 @@ class _LoginScreenState extends State<LoginScreen> {
   late TextEditingController _passwordTextEditingController;
   late TapGestureRecognizer _tapGestureRecognizer;
   bool _obscure = true;
+  String? _errorEmailValue;
+  String? _errorPassWordValue;
 
   @override
   void initState() {
@@ -88,17 +90,23 @@ class _LoginScreenState extends State<LoginScreen> {
               AppTextFiled(
                 keyboard: TextInputType.emailAddress,
                 hint: 'Email',
+                errorText: _errorEmailValue,
                 paddingBottom: 19,
                 controller: _emailTextEditingController,
                 minLines: null,
                 maxLines: null,
                 expands: true,
-                constraints: 70,
+                constraints: _errorEmailValue != null ? 95 :70,
                 prefix: Icons.mail_outline,
               ),
               AppTextFiled(
                 keyboard: TextInputType.visiblePassword,
                 hint: 'Password',
+                constraints: _errorPassWordValue != null ? 95 :70,
+                maxLines: 1,
+                minLines: 1,
+                expands: false,
+                errorText: _errorPassWordValue,
                 suffix: _obscure
                     ? Icons.visibility_outlined
                     : Icons.visibility_off_outlined,
@@ -107,12 +115,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   setState(() {
                     _obscure = !_obscure;
                   });
+
                 },
                 controller: _passwordTextEditingController,
                 obscure: _obscure,
               ),
               const SizedBox(
-                height: 10,
+                height: 5,
               ),
               TextButton(
                 onPressed: () {},
@@ -125,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 5,
               ),
               CustomBottomButton(
                   title: 'Login',
@@ -133,7 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     performLogin();
                   }),
               const SizedBox(
-                height: 19,
+                height: 10,
               ),
               Text('Or',
                   style: TextStyle(
@@ -141,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontSize: 12,
                       color: bottun2)),
               const SizedBox(
-                height: 12,
+                height: 10,
               ),
               const CustomButtonLogin(
                   image: 'images/Googleimage.png', text: 'Sign With Google'),
@@ -151,7 +160,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 marginBottom: 0,
               ),
               const SizedBox(
-                height: 19,
+                height: 10,
               ),
               RichText(
                 text: TextSpan(
@@ -187,13 +196,30 @@ class _LoginScreenState extends State<LoginScreen> {
   bool checkData() {
     if (_emailTextEditingController.text.isNotEmpty &&
         _passwordTextEditingController.text.isNotEmpty) {
+      setStateErrorValue();
       return true;
     }
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        duration: Duration(seconds: 3),
-        backgroundColor: Color(0xFFFF4343),
-        content: Text('Enter Required Data')));
+    setStateErrorValue();
+
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        duration: const Duration(seconds: 3),
+        dismissDirection: DismissDirection.horizontal,
+        margin:
+            const EdgeInsetsDirectional.symmetric(horizontal: 10, vertical: 10),
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        backgroundColor: const Color(0xFFFF4343),
+        content: const Text('Enter Required Data')));
     return false;
+  }
+
+  void setStateErrorValue() {
+    setState(() {
+      _errorEmailValue =
+          _emailTextEditingController.text.isEmpty ? 'Enter Email' : null;
+      _errorPassWordValue =
+          _passwordTextEditingController.text.isEmpty ? 'Enter Password' : null;
+    });
   }
 
   void login() {

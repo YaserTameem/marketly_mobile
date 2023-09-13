@@ -16,9 +16,11 @@ class AppTextFiled extends StatelessWidget {
     this.expands = false,
     this.constraints = 70,
     required this.keyboard,
+    this.errorText,
   });
 
   final String hint;
+  final String? errorText;
   final double paddingBottom;
   final IconData? suffix;
   final IconData? prefix;
@@ -44,6 +46,7 @@ class AppTextFiled extends StatelessWidget {
         minLines: minLines,
         expands: expands,
         decoration: InputDecoration(
+          errorText: errorText,
           contentPadding: const EdgeInsetsDirectional.symmetric(horizontal: 58),
           constraints: BoxConstraints(maxHeight: constraints),
           hintText: hint,
@@ -57,7 +60,15 @@ class AppTextFiled extends StatelessWidget {
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: const BorderSide(color: Colors.transparent)),
+          errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: const BorderSide(color: Colors.transparent)),
+          focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: const BorderSide(color: Colors.transparent)),
           suffixIcon: IconButton(
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
             onPressed: onPress,
             icon: Icon(suffix),
           ),

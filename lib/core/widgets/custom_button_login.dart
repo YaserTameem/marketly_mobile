@@ -4,7 +4,7 @@ class CustomButtonLogin extends StatelessWidget {
   const CustomButtonLogin({
     required this.image,
     required this.text,
-    this.marginBottom=19,
+    this.marginBottom=12,
     super.key,
   });
 final String image;
