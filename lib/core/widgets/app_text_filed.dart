@@ -23,7 +23,7 @@ class AppTextFiled extends StatelessWidget {
   final String? errorText;
   final double paddingBottom;
   final IconData? suffix;
-  final IconData? prefix;
+  final Widget? prefix;
   final void Function()? onPress;
   final TextEditingController controller;
   final bool obscure;
@@ -72,10 +72,7 @@ class AppTextFiled extends StatelessWidget {
             onPressed: onPress,
             icon: Icon(suffix),
           ),
-          prefixIcon: Icon(
-            prefix,
-            weight: 18,
-          ),
+          prefixIcon:prefix,
           prefixIconColor: bottunTextColor,
           filled: true,
           fillColor: const Color(0xFFF9FAFB),

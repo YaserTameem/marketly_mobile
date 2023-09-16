@@ -4,6 +4,7 @@ import 'package:marketly_mobile/core/constant.dart';
 import 'package:marketly_mobile/core/widgets/app_text_filed.dart';
 import 'package:marketly_mobile/core/widgets/custom_bottom_button.dart';
 import 'package:marketly_mobile/core/widgets/custom_button_login.dart';
+import 'package:marketly_mobile/modules/auth_screens/forgot_password_screen.dart';
 import 'package:marketly_mobile/modules/auth_screens/signup_screen.dart';
 import 'package:marketly_mobile/modules/settings/profile_screen.dart';
 
@@ -97,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 maxLines: null,
                 expands: true,
                 constraints: _errorEmailValue != null ? 95 :70,
-                prefix: Icons.mail_outline,
+                prefix:const Icon( Icons.mail_outline),
               ),
               AppTextFiled(
                 keyboard: TextInputType.visiblePassword,
@@ -110,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 suffix: _obscure
                     ? Icons.visibility_outlined
                     : Icons.visibility_off_outlined,
-                prefix: Icons.lock_outline,
+                prefix: const Icon(Icons.lock_outline),
                 onPress: () {
                   setState(() {
                     _obscure = !_obscure;
@@ -124,7 +125,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 5,
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed(ForgotPassWordScreen.screenRoute);
+                },
                 child: Text(
                   'Forgot Password?',
                   style: TextStyle(
