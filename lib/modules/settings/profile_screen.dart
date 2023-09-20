@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:marketly_mobile/core/constant.dart';
 import 'package:marketly_mobile/core/widgets/custom_profile_listTile.dart';
 
@@ -16,8 +17,10 @@ class ProfileScreen extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         leading: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.arrow_back_ios_new_outlined, color: heading),
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(Icons.arrow_back_ios_new_outlined,size: 25, color: heading),
         ),
         title: Text(
           'My Profile',

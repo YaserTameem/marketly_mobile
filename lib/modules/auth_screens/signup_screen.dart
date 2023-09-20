@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:marketly_mobile/core/constant.dart';
 import 'package:marketly_mobile/core/widgets/app_text_filed.dart';
 import 'package:marketly_mobile/core/widgets/custom_bottom_button.dart';
@@ -216,6 +217,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void login() {
-    Navigator.of(context).pushNamed(HomeScreen.screenRoute);
+   Get.to(const HomeScreen());
   }
 }

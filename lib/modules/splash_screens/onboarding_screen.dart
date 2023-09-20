@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:marketly_mobile/core/widgets/custom_bottom_button.dart';
 import 'package:marketly_mobile/core/widgets/custom_page_indecator.dart';
 import 'package:marketly_mobile/core/widgets/custom_text_button.dart';
 import 'package:marketly_mobile/core/widgets/onbordeing_contant.dart';
 import 'package:marketly_mobile/modules/auth_screens/login_screen.dart';
-import 'package:marketly_mobile/modules/settings/profile_screen.dart';
 
 class OneBoardingScreen extends StatefulWidget {
-  static const String screenRoute = '/oneboarding_screen';
+  static const String screenRoute = '/oneBoarding_screen';
 
   const OneBoardingScreen({super.key});
 
@@ -44,7 +44,7 @@ class _OneBoardingScreenState extends State<OneBoardingScreen> {
                 replacement: CustomTextButton(
                   title: 'START',
                   onPress: () {
-                    Navigator.of(context).pushReplacementNamed(LoginScreen.screenRoute);
+                    Get.off(const LoginScreen());
                   },
                 ),
                 child: CustomTextButton(
@@ -100,7 +100,7 @@ class _OneBoardingScreenState extends State<OneBoardingScreen> {
                 replacement: CustomBottomButton(
                   title: 'Get Start',
                   ontap: () {
-                    Navigator.of(context).pushReplacementNamed(LoginScreen.screenRoute);
+                    Get.off(const LoginScreen());
                   },
                 ),
                 child: CustomBottomButton(

@@ -1,5 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:marketly_mobile/core/constant.dart';
 import 'package:marketly_mobile/core/widgets/app_text_filed.dart';
 import 'package:marketly_mobile/core/widgets/custom_bottom_button.dart';
@@ -66,11 +68,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: 64,
                 height: 64,
                 decoration: BoxDecoration(
-                    gradient:
-                        LinearGradient(colors: [kMaincolor1, kMaincolor2]),
-                    borderRadius: const BorderRadiusDirectional.only(
-                        bottomStart: Radius.circular(20),
-                        topEnd: Radius.circular(20))),
+                  gradient: LinearGradient(colors: [kMaincolor1, kMaincolor2]),
+                  borderRadius: const BorderRadiusDirectional.only(
+                    bottomStart: Radius.circular(20),
+                    topEnd: Radius.circular(20),
+                  ),
+                ),
                 child: const Image(
                   image: AssetImage('images/logo2.png'),
                 ),
@@ -79,15 +82,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 'Lets Get Started',
                 style: heading1,
               ),
-              const SizedBox(
-                height: 11,
+               SizedBox(
+                height: 11.h,
               ),
               Text(
                 'Find the right ticket and what you want \n only in myticket',
                 textAlign: TextAlign.center,
                 style: paragraf1,
               ),
-              const SizedBox(height: 19),
+               SizedBox(height: 19.h),
               AppTextFiled(
                 keyboard: TextInputType.emailAddress,
                 hint: 'Email',
@@ -97,13 +100,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 minLines: null,
                 maxLines: null,
                 expands: true,
-                constraints: _errorEmailValue != null ? 95 :70,
-                prefix:const Icon( Icons.mail_outline),
+                constraints: _errorEmailValue != null ? 95 : 70,
+                prefix: const Icon(Icons.mail_outline),
               ),
               AppTextFiled(
                 keyboard: TextInputType.visiblePassword,
                 hint: 'Password',
-                constraints: _errorPassWordValue != null ? 95 :70,
+                constraints: _errorPassWordValue != null ? 95 : 70,
                 maxLines: 1,
                 minLines: 1,
                 expands: false,
@@ -116,7 +119,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   setState(() {
                     _obscure = !_obscure;
                   });
-
                 },
                 controller: _passwordTextEditingController,
                 obscure: _obscure,
@@ -126,7 +128,8 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(ForgotPassWordScreen.screenRoute);
+                  Navigator.of(context)
+                      .pushNamed(ForgotPassWordScreen.screenRoute);
                 },
                 child: Text(
                   'Forgot Password?',
@@ -226,6 +229,6 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void login() {
-    Navigator.of(context).pushNamed(ProfileScreen.screenRoute);
+    Get.to(const ProfileScreen());
   }
 }
