@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:marketly_mobile/modules/auth_screens/forgot_password_screen.dart';
 import 'package:marketly_mobile/modules/auth_screens/login_screen.dart';
@@ -32,18 +32,38 @@ class MyApp extends StatelessWidget {
           ),
           debugShowCheckedModeBanner: false,
           initialRoute: SplashScreen.screenRoute,
-          routes: {
-            SplashScreen.screenRoute: (context) => const SplashScreen(),
-            OneBoardingScreen.screenRoute: (context) => const OneBoardingScreen(),
-            LoginScreen.screenRoute: (context) => const LoginScreen(),
-            ProfileScreen.screenRoute: (context) => const ProfileScreen(),
-            SignUpScreen.screenRoute: (context) => const SignUpScreen(),
-            ForgotPassWordScreen.screenRoute: (context) => const ForgotPassWordScreen(),
-            SearchScreen.screenRoute: (context) => const SearchScreen(),
-            HomeScreen.screenRoute: (context) => const HomeScreen(),
-            NewPassWordScreen.screenRoute: (context) => const NewPassWordScreen(),
-            VerifyCodeScreen.screenRoute: (context) => const VerifyCodeScreen(),
-          },
+          getPages: [
+            GetPage(
+                name: SplashScreen.screenRoute,
+                page: () => const SplashScreen()),
+            GetPage(
+                name: OneBoardingScreen.screenRoute,
+                page: () => const OneBoardingScreen()),
+            GetPage(
+                name: LoginScreen.screenRoute,
+                page: () => const LoginScreen()),
+            GetPage(
+                name: ProfileScreen.screenRoute,
+                page: () => const ProfileScreen()),
+            GetPage(
+                name: SignUpScreen.screenRoute,
+                page: () => const SignUpScreen()),
+            GetPage(
+                name: ForgotPassWordScreen.screenRoute,
+                page: () => const ForgotPassWordScreen()),
+            GetPage(
+                name: SearchScreen.screenRoute,
+                page: () => const SearchScreen()),
+            GetPage(
+                name: HomeScreen.screenRoute,
+                page: () => const HomeScreen()),
+            GetPage(
+                name: NewPassWordScreen.screenRoute,
+                page: () => const NewPassWordScreen()),
+            GetPage(
+                name: VerifyCodeScreen.screenRoute,
+                page: () => const VerifyCodeScreen()),
+          ],
         );
       },
     );

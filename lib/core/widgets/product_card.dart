@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:marketly_mobile/core/constant.dart';
 
-class ProductCard extends StatelessWidget {
+class ProductCard extends StatefulWidget {
   const ProductCard({
     required this.dicCount,
     this.image,
     required this.title,
     required this.price,
     required this.oldPrice,
-     this.onPress,
     super.key,
   });
 
@@ -17,22 +17,37 @@ class ProductCard extends StatelessWidget {
   final String title;
   final double price;
   final double oldPrice;
-  final VoidCallback? onPress;
+
+  @override
+  State<ProductCard> createState() => _ProductCardState();
+}
+
+class _ProductCardState extends State<ProductCard> {
+  bool _isFavorite = false;
+
+  void _toggleFavorite() {
+    setState(() {
+      if (_isFavorite) {
+        _isFavorite = false;
+      } else {
+        _isFavorite = true;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      // width: ,
-      // height: ,
       decoration: BoxDecoration(
-          borderRadius: BorderRadiusDirectional.circular(30),
+          borderRadius: BorderRadiusDirectional.circular(30.r),
           color: Colors.white,
           boxShadow: [
             BoxShadow(
                 offset: const Offset(24, 40),
-                color: const Color(0xFF22292E).withOpacity(0.2),
-                blurRadius: 80)
+                color: const Color(0xFF22292E).withOpacity(0.1),
+                blurRadius: 80.r)
           ]),
+
       child: Padding(
         padding: const EdgeInsetsDirectional.all(8),
         child: Column(
@@ -42,78 +57,76 @@ class ProductCard extends StatelessWidget {
               children: [
                 Container(
                   height: 152,
-                  margin: const EdgeInsetsDirectional.only(bottom: 8),
+                  margin: EdgeInsetsDirectional.only(bottom: 8.h),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadiusDirectional.circular(30),
+                    borderRadius: BorderRadiusDirectional.circular(30.r),
                     color: const Color(0xFFE5E5EA),
                     // image:DecorationImage(image: )
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsetsDirectional.symmetric(
-                      horizontal: 8, vertical: 4),
-                  margin: const EdgeInsetsDirectional.only(start: 6, top: 6),
-                  width: 70,
-                  height: 26,
+                  padding: EdgeInsetsDirectional.symmetric(
+                      horizontal: 8.w, vertical: 4.h),
+                  margin: EdgeInsetsDirectional.only(start: 6.w, top: 6.h),
+                  width: 70.w,
+                  height: 26.h,
                   decoration: BoxDecoration(
                       gradient:
                           LinearGradient(colors: [kMaincolor1, kMaincolor2]),
-                      borderRadius: BorderRadiusDirectional.circular(9)),
+                      borderRadius: BorderRadiusDirectional.circular(9.r)),
                   child: Text(
-                    dicCount,
-                    style: const TextStyle(
-                        fontSize: 12,
+                    widget.dicCount,
+                    style: TextStyle(
+                        fontSize: 12.sp,
                         fontWeight: FontWeight.w600,
-                        color: Color(0xFFF8F8F8)),
+                        color: const Color(0xFFF8F8F8)),
                   ),
                 ),
               ],
             ),
             Text(
-              title,
-              style: const TextStyle(
+              widget.title,
+              style: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: 14,
-                  color: Color(0XFF090F24)),
+                  fontSize: 14.sp,
+                  color: const Color(0XFF090F24)),
             ),
-            const SizedBox(
-              height: 4,
+            SizedBox(
+              height: 4.h,
             ),
             Text(
-              '\$$price',
-              style: const TextStyle(
+              '\$${widget.price}',
+              style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: Color(0XFF090F24)),
+                  fontSize: 16.sp,
+                  color: const Color(0XFF090F24)),
             ),
-            const SizedBox(
-              height: 3,
+            SizedBox(
+              height: 3.h,
             ),
             Row(
               children: [
                 Text(
-                  '\$$oldPrice',
-                  style: const TextStyle(
-                    fontSize: 14,
-                    color: Color(0XFF8A8A8E),
+                  '\$${widget.oldPrice}',
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    color: const Color(0XFF8A8A8E),
                     decoration: TextDecoration.lineThrough,
                     decorationThickness: 2,
                   ),
                 ),
                 const Spacer(),
                 IconButton(
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  padding: EdgeInsetsDirectional.zero,
-                  constraints: const BoxConstraints(),
-                  onPressed: onPress,
-                  icon: const Icon(
-                    Icons.favorite_outline,
-                    color: Color(
-                      (0xFFFF4343),
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    padding: EdgeInsetsDirectional.zero,
+                    constraints: const BoxConstraints(),
+                    onPressed:_toggleFavorite,
+                    icon: _isFavorite
+                        ? const Icon(Icons.favorite)
+                        : const Icon(Icons.favorite_outline),
+                    color: const Color(0xFFFF4343),
                     ),
-                  ),
-                ),
               ],
             ),
           ],

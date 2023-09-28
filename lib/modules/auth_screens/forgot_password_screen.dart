@@ -51,7 +51,7 @@ class _ForgotPassWordScreenState extends State<ForgotPassWordScreen> {
               highlightColor: Colors.transparent,
               icon: Icon(
                 Icons.arrow_back_ios_new_outlined,
-                size:22,
+                size: 22,
                 color: bottunColor,
               ),
               onPressed: () {
@@ -102,7 +102,9 @@ class _ForgotPassWordScreenState extends State<ForgotPassWordScreen> {
               constraints: _errorEmailValue != null ? 95 : 70,
               prefix: const Icon(Icons.mail_outline),
             ),
-            const SizedBox(height: 30,),
+            const SizedBox(
+              height: 30,
+            ),
             CustomBottomButton(
                 title: 'Sign In',
                 ontap: () {
@@ -147,6 +149,6 @@ class _ForgotPassWordScreenState extends State<ForgotPassWordScreen> {
   }
 
   void login() {
-   Get.to(const NewPassWordScreen());
+    Get.toNamed(NewPassWordScreen.screenRoute);
   }
 }

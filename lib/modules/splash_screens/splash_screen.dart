@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:marketly_mobile/core/constant.dart';
@@ -20,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
     Future.delayed(const Duration(seconds: 2), () {
-      Get.off(const OneBoardingScreen());
+      Get.offNamed(OneBoardingScreen.screenRoute);
     });
   }
 
@@ -31,6 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
         overlays: SystemUiOverlay.values);
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -40,7 +42,6 @@ class _SplashScreenState extends State<SplashScreen> {
           gradient: LinearGradient(
             begin: AlignmentDirectional.topStart,
             end: AlignmentDirectional.bottomEnd,
-            // stops: [40,100],
             colors: [
               kMaincolor1,
               kMaincolor2,
@@ -53,26 +54,26 @@ class _SplashScreenState extends State<SplashScreen> {
             const Spacer(),
             Container(
               alignment: AlignmentDirectional.center,
-              width: 150,
-              height: 150,
-              decoration: const BoxDecoration(
+              width: 150.w,
+              height: 150.h,
+              decoration:  BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadiusDirectional.only(
-                  bottomStart: Radius.circular(50),
-                  topEnd: Radius.circular(50),
+                  bottomStart: Radius.circular(50.r),
+                  topEnd: Radius.circular(50.r),
                 ),
               ),
               child: const Image(
                 image: AssetImage('images/splash_logo.png'),
               ),
             ),
-            const SizedBox(
-              height: 10,
+             SizedBox(
+              height: 10.h,
             ),
-            const Text(
+             Text(
               'Marketly',
               style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 30.sp,
                   fontWeight: FontWeight.w700,
                   color: Colors.white),
             ),
@@ -81,8 +82,8 @@ class _SplashScreenState extends State<SplashScreen> {
               size: 40.0,
               color: Colors.white,
             ),
-            const SizedBox(
-              height: 20,
+             SizedBox(
+              height: 20.h,
             ),
           ],
         ),

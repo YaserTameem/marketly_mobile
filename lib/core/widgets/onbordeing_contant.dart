@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CoustomOnbordeingScreen extends StatelessWidget {
   const CoustomOnbordeingScreen({
@@ -16,15 +17,15 @@ class CoustomOnbordeingScreen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset(image),
-        const SizedBox(
-          height: 10,
+         SizedBox(
+          height: 10.h,
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+          padding: EdgeInsets.symmetric(horizontal: 15.w),
           child: Text(
             title,
             textAlign: TextAlign.center,
-            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 34),
+            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 34.sp),
           ),
         ),
       ],

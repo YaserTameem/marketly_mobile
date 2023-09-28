@@ -55,125 +55,127 @@ class _SignUpScreenState extends State<SignUpScreen> {
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
-        body: Padding(
-          padding: const EdgeInsetsDirectional.symmetric(horizontal: 25),
-          child: Column(
-            children: [
-              Container(
-                margin: const EdgeInsetsDirectional.only(bottom: 16),
-                width: 64,
-                height: 64,
-                decoration: BoxDecoration(
-                    gradient:
-                        LinearGradient(colors: [kMaincolor1, kMaincolor2]),
-                    borderRadius: const BorderRadiusDirectional.only(
-                        bottomStart: Radius.circular(20),
-                        topEnd: Radius.circular(20))),
-                child: const Image(
-                  image: AssetImage('images/logo2.png'),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsetsDirectional.symmetric(horizontal: 25),
+            child: Column(
+              children: [
+                Container(
+                  margin: const EdgeInsetsDirectional.only(bottom: 16),
+                  width: 64,
+                  height: 64,
+                  decoration: BoxDecoration(
+                      gradient:
+                          LinearGradient(colors: [kMaincolor1, kMaincolor2]),
+                      borderRadius: const BorderRadiusDirectional.only(
+                          bottomStart: Radius.circular(20),
+                          topEnd: Radius.circular(20))),
+                  child: const Image(
+                    image: AssetImage('images/logo2.png'),
+                  ),
                 ),
-              ),
-              Text(
-                'Create an account',
-                style: heading1,
-              ),
-              const SizedBox(
-                height: 9,
-              ),
-              AppTextFiled(
-                hint: 'Name',
-                controller: _nameTextEditingController,
-                keyboard: TextInputType.text,
-                errorText: _errorNameValue,
-                paddingBottom: 12,
-                prefix: const Icon(Icons.mode_edit_outline),
-                minLines: null,
-                maxLines: null,
-                expands: true,
-                constraints: _errorNameValue != null ? 81 : 56,
-              ),
-              AppTextFiled(
-                keyboard: TextInputType.emailAddress,
-                hint: 'Email',
-                errorText: _errorEmailValue,
-                paddingBottom: 12,
-                controller: _emailTextEditingController,
-                minLines: null,
-                maxLines: null,
-                expands: true,
-                constraints: _errorEmailValue != null ? 81 : 56,
-                prefix: const Icon(Icons.mail_outline),
-              ),
-              AppTextFiled(
-                hint: 'Phone',
-                controller: _phoneTextEditingController,
-                keyboard: TextInputType.number,
-                minLines: null,
-                maxLines: null,
-                expands: true,
-                constraints: 56,
-                paddingBottom: 12,
-                prefix:const Icon( Icons.phone_outlined),
-              ),
-              AppTextFiled(
-                keyboard: TextInputType.visiblePassword,
-                hint: 'Password',
-                constraints: _errorPassWordValue != null ? 81 : 56,
-                maxLines: 1,
-                minLines: 1,
-                expands: false,
-                errorText: _errorPassWordValue,
-                suffix: _obscure
-                    ? Icons.visibility_outlined
-                    : Icons.visibility_off_outlined,
-                prefix:const Icon (Icons.lock_outline),
-                onPress: () {
-                  setState(() {
-                    _obscure = !_obscure;
-                  });
-                },
-                controller: _passwordTextEditingController,
-                obscure: _obscure,
-              ),
-              const SizedBox(
-                height: 12,
-              ),
-              CustomBottomButton(
-                  title: 'SignUp',
-                  ontap: () {
-                    performLogin();
-                  }),
-              const SizedBox(
-                height: 10,
-              ),
-              Text('Or',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 12,
-                      color: bottun2)),
-              const SizedBox(
-                height: 10,
-              ),
-              const CustomButtonLogin(
-                  image: 'images/Googleimage.png', text: 'Sign With Google'),
-              const CustomButtonLogin(
-                image: 'images/iphoneimage.png',
-                text: 'Sign With Apple',
-                marginBottom: 0,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
+                Text(
+                  'Create an account',
+                  style: heading1,
+                ),
+                const SizedBox(
+                  height: 9,
+                ),
+                AppTextFiled(
+                  hint: 'Name',
+                  controller: _nameTextEditingController,
+                  keyboard: TextInputType.text,
+                  errorText: _errorNameValue,
+                  paddingBottom: 12,
+                  prefix: const Icon(Icons.mode_edit_outline),
+                  minLines: null,
+                  maxLines: null,
+                  expands: true,
+                  constraints: _errorNameValue != null ? 81 : 56,
+                ),
+                AppTextFiled(
+                  keyboard: TextInputType.emailAddress,
+                  hint: 'Email',
+                  errorText: _errorEmailValue,
+                  paddingBottom: 12,
+                  controller: _emailTextEditingController,
+                  minLines: null,
+                  maxLines: null,
+                  expands: true,
+                  constraints: _errorEmailValue != null ? 81 : 56,
+                  prefix: const Icon(Icons.mail_outline),
+                ),
+                AppTextFiled(
+                  hint: 'Phone',
+                  controller: _phoneTextEditingController,
+                  keyboard: TextInputType.number,
+                  minLines: null,
+                  maxLines: null,
+                  expands: true,
+                  constraints: 56,
+                  paddingBottom: 12,
+                  prefix:const Icon( Icons.phone_outlined),
+                ),
+                AppTextFiled(
+                  keyboard: TextInputType.visiblePassword,
+                  hint: 'Password',
+                  constraints: _errorPassWordValue != null ? 81 : 56,
+                  maxLines: 1,
+                  minLines: 1,
+                  expands: false,
+                  errorText: _errorPassWordValue,
+                  suffix: _obscure
+                      ? Icons.visibility_outlined
+                      : Icons.visibility_off_outlined,
+                  prefix:const Icon (Icons.lock_outline),
+                  onPress: () {
+                    setState(() {
+                      _obscure = !_obscure;
+                    });
+                  },
+                  controller: _passwordTextEditingController,
+                  obscure: _obscure,
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                CustomBottomButton(
+                    title: 'SignUp',
+                    ontap: () {
+                      performLogin();
+                    }),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text('Or',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 12,
+                        color: bottun2)),
+                const SizedBox(
+                  height: 10,
+                ),
+                const CustomButtonLogin(
+                    image: 'images/Googleimage.png', text: 'Sign With Google'),
+                const CustomButtonLogin(
+                  image: 'images/iphoneimage.png',
+                  text: 'Sign With Apple',
+                  marginBottom: 0,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
 
-              const Text(
-                textAlign: TextAlign.center,
-                'By sign in, accept te terms of service,\n Guidelines and have read Privacy Policy.',
-                style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xFF777B8A)),
-              )
-            ],
+                const Text(
+                  textAlign: TextAlign.center,
+                  'By sign in, accept te terms of service,\n Guidelines and have read Privacy Policy.',
+                  style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xFF777B8A)),
+                )
+              ],
+            ),
           ),
         ));
   }
@@ -217,6 +219,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void login() {
-   Get.to(const HomeScreen());
+   Get.toNamed( HomeScreen.screenRoute);
   }
 }

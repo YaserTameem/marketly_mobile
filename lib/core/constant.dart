@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 var kMaincolor1 = const Color(0xFF2513ff);
@@ -9,19 +10,19 @@ var bottunTextColor = const Color(0xFF979797);
 var bottun2 = const Color(0xFF0A0D14);
 var bottunColor = Colors.white;
 
-TextStyle bottun =
-    GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w600);
+TextStyle bottun = GoogleFonts.poppins(
+    fontSize: 16.sp, fontWeight: FontWeight.w600);
 TextStyle heading1 = GoogleFonts.poppins(
-    fontSize: 24, fontWeight: FontWeight.w500, color: heading);
+    fontSize: 24.sp, fontWeight: FontWeight.w500, color: heading);
 TextStyle heading2 = GoogleFonts.poppins(
-    fontSize: 20, fontWeight: FontWeight.w500, color: heading);
+    fontSize: 20.sp, fontWeight: FontWeight.w500, color: heading);
 TextStyle heading3 = GoogleFonts.poppins(
-    fontSize: 16, fontWeight: FontWeight.w600, color: bottunColor );
+    fontSize: 16.sp, fontWeight: FontWeight.w600, color: bottunColor );
 TextStyle input = GoogleFonts.poppins(
-    fontSize: 16, fontWeight: FontWeight.w600, color: bottunTextColor );
+    fontSize: 16.sp, fontWeight: FontWeight.w600, color: bottunTextColor );
 TextStyle heading4 = GoogleFonts.poppins(
-    fontSize: 14, fontWeight: FontWeight.w500, color: heading);
+    fontSize: 14.sp, fontWeight: FontWeight.w500, color: heading);
 TextStyle paragraf1 = GoogleFonts.poppins(
-    fontSize: 14, fontWeight: FontWeight.w500, color: paragraf);
+    fontSize: 14.sp, fontWeight: FontWeight.w500, color: paragraf);
 TextStyle  bottun3= GoogleFonts.poppins(
-    fontSize: 16, fontWeight: FontWeight.w600, color: bottun2 );
+    fontSize: 16.sp, fontWeight: FontWeight.w600, color: bottun2 );

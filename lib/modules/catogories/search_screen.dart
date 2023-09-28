@@ -13,6 +13,7 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+
   late TextEditingController _searchTextEditingController;
 
   @override
@@ -94,12 +95,11 @@ class _SearchScreenState extends State<SearchScreen> {
           childAspectRatio: 168 / 245,
         ),
         itemBuilder: (context, index) {
-          return  ProductCard(
+          return  const ProductCard(
             title: 'Smart Watch Gen I',
             dicCount: 'Disc 80%',
             oldPrice: 200,
             price: 159,
-            onPress: (){},
           );
         },
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:marketly_mobile/core/constant.dart';
 
 class AppTextFiled extends StatelessWidget {
@@ -36,7 +37,7 @@ class AppTextFiled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.only(bottom: paddingBottom),
+      padding: EdgeInsetsDirectional.only(bottom: paddingBottom.h),
       child: TextField(
         keyboardType: keyboard,
         obscureText: obscure,
@@ -47,30 +48,30 @@ class AppTextFiled extends StatelessWidget {
         expands: expands,
         decoration: InputDecoration(
           errorText: errorText,
-          contentPadding: const EdgeInsetsDirectional.symmetric(horizontal: 58),
-          constraints: BoxConstraints(maxHeight: constraints),
+          contentPadding:  EdgeInsetsDirectional.symmetric(horizontal: 58.w),
+          constraints: BoxConstraints(maxHeight: constraints.h),
           hintText: hint,
           hintStyle: input,
           disabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(20.r),
               borderSide: const BorderSide(color: Colors.transparent)),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(20.r),
               borderSide: const BorderSide(color: Colors.transparent)),
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(20.r),
               borderSide: const BorderSide(color: Colors.transparent)),
           errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(20.r),
               borderSide: const BorderSide(color: Colors.transparent)),
           focusedErrorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(20.r),
               borderSide: const BorderSide(color: Colors.transparent)),
           suffixIcon: IconButton(
             highlightColor: Colors.transparent,
             splashColor: Colors.transparent,
             onPressed: onPress,
-            icon: Icon(suffix),
+            icon: Icon(suffix ,size: ScreenUtil().setSp(24),),
           ),
           prefixIcon:prefix,
           prefixIconColor: bottunTextColor,

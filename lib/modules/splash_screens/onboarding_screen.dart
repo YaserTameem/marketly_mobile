@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:marketly_mobile/core/widgets/custom_bottom_button.dart';
 import 'package:marketly_mobile/core/widgets/custom_page_indecator.dart';
@@ -44,7 +45,7 @@ class _OneBoardingScreenState extends State<OneBoardingScreen> {
                 replacement: CustomTextButton(
                   title: 'START',
                   onPress: () {
-                    Get.off(const LoginScreen());
+                    Get.offNamed(LoginScreen.screenRoute);
                   },
                 ),
                 child: CustomTextButton(
@@ -92,7 +93,7 @@ class _OneBoardingScreenState extends State<OneBoardingScreen> {
                 CustomPageIndecator(isCurrentIndex: _currentPage == 2),
               ],
             ),
-            const SizedBox(height: 40),
+             SizedBox(height: 40.h),
             Align(
               alignment: AlignmentDirectional.center,
               child: Visibility(
@@ -100,7 +101,7 @@ class _OneBoardingScreenState extends State<OneBoardingScreen> {
                 replacement: CustomBottomButton(
                   title: 'Get Start',
                   ontap: () {
-                    Get.off(const LoginScreen());
+                    Get.offNamed(LoginScreen.screenRoute);
                   },
                 ),
                 child: CustomBottomButton(
@@ -113,8 +114,8 @@ class _OneBoardingScreenState extends State<OneBoardingScreen> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 60,
+             SizedBox(
+              height: 60.h,
             ),
           ],
         ),

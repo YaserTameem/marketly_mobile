@@ -82,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 'Lets Get Started',
                 style: heading1,
               ),
-               SizedBox(
+              SizedBox(
                 height: 11.h,
               ),
               Text(
@@ -90,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 textAlign: TextAlign.center,
                 style: paragraf1,
               ),
-               SizedBox(height: 19.h),
+              SizedBox(height: 19.h),
               AppTextFiled(
                 keyboard: TextInputType.emailAddress,
                 hint: 'Email',
@@ -229,6 +229,6 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void login() {
-    Get.to(const ProfileScreen());
+    Get.toNamed(ProfileScreen.screenRoute);
   }
 }

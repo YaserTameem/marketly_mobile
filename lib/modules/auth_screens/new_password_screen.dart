@@ -189,6 +189,6 @@ class _NewPassWordScreenState extends State<NewPassWordScreen> {
   }
 
   void login() {
-    Get.to(const VerifyCodeScreen());
+    Get.toNamed(VerifyCodeScreen.screenRoute);
   }
 }

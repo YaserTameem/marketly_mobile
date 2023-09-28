@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:marketly_mobile/core/constant.dart';
 import 'package:marketly_mobile/core/widgets/custom_profile_listTile.dart';
@@ -20,7 +21,8 @@ class ProfileScreen extends StatelessWidget {
           onPressed: () {
             Get.back();
           },
-          icon: Icon(Icons.arrow_back_ios_new_outlined,size: 25, color: heading),
+          icon: Icon(Icons.arrow_back_ios_new_outlined,
+              size: ScreenUtil().setSp(25), color: heading),
         ),
         title: Text(
           'My Profile',
@@ -40,20 +42,20 @@ class ProfileScreen extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              width: 120,
-              height: 120,
+              width: 120.w,
+              height: 120.h,
               child: ClipRRect(
-                  borderRadius: BorderRadiusDirectional.circular(100),
+                  borderRadius: BorderRadiusDirectional.circular(100.r),
                   child: const Image(
                     image: AssetImage('images/profile.jpg'),
                   )),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 10.h),
             Text(
               'Yaser Tameem',
               style: heading2,
             ),
-            const SizedBox(height: 50),
+            SizedBox(height: 50.h),
             CustomProfileListTile(
               title: 'My Profile',
               leading: Icons.account_circle_outlined,
