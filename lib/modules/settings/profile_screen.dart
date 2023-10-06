@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:marketly_mobile/core/constant.dart';
+import 'package:marketly_mobile/core/style/app_colors.dart';
 import 'package:marketly_mobile/core/widgets/custom_profile_listTile.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -13,30 +13,30 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: Icon(Icons.arrow_back_ios_new_outlined,
-              size: ScreenUtil().setSp(25), color: heading),
-        ),
-        title: Text(
-          'My Profile',
-          style: heading1,
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.shopping_cart_outlined,
-                color: heading,
-              ))
-        ],
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.transparent,
+      //   elevation: 0,
+      //   centerTitle: true,
+      //   leading: IconButton(
+      //     onPressed: () {
+      //       Get.back();
+      //     },
+      //     icon: Icon(Icons.arrow_back_ios_new_outlined,
+      //         size: ScreenUtil().setSp(25), color: AppColor.heading),
+      //   ),
+      //   title: Text(
+      //     'My Profile',
+      //     style: heading1,
+      //   ),
+      //   actions: [
+      //     IconButton(
+      //         onPressed: () {},
+      //         icon: const Icon(
+      //           Icons.shopping_cart_outlined,
+      //           color: AppColor.heading,
+      //         ))
+      //   ],
+      // ),
       body: Padding(
         padding: const EdgeInsetsDirectional.all(20),
         child: Column(

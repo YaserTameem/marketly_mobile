@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:marketly_mobile/core/constant.dart';
+import 'package:marketly_mobile/core/style/app_colors.dart';
 
 class CustomProfileListTile extends StatelessWidget {
   const CustomProfileListTile(
@@ -29,14 +29,14 @@ class CustomProfileListTile extends StatelessWidget {
             padding: const EdgeInsetsDirectional.all(8),
             decoration: BoxDecoration(
               borderRadius: BorderRadiusDirectional.circular(15.r),
-              color: kMaincolor1.withOpacity(0.1),
+              color: AppColor.kMaincolor1.withOpacity(0.1),
             ),
-            child: Icon(leading, color: kMaincolor1.withOpacity(0.8)),
+            child: Icon(leading, color: AppColor.kMaincolor1.withOpacity(0.8)),
           ),
           title: Text(
             title,
-            style: TextStyle(
-                color: heading, fontWeight: FontWeight.bold, fontSize: 16),
+            style: const TextStyle(
+                color: AppColor.heading, fontWeight: FontWeight.bold, fontSize: 16),
           ),
           trailing: IconButton(
             highlightColor: Colors.transparent,
@@ -44,7 +44,7 @@ class CustomProfileListTile extends StatelessWidget {
             onPressed: onPress,
             icon: Icon(
               trailing,
-              color: heading,
+              color: AppColor.heading,
             ),
           )),
     );

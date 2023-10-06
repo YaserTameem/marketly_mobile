@@ -2,13 +2,14 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:marketly_mobile/core/constant.dart';
+import 'package:marketly_mobile/core/style/app_colors.dart';
 import 'package:marketly_mobile/core/widgets/app_text_filed.dart';
 import 'package:marketly_mobile/core/widgets/custom_bottom_button.dart';
 import 'package:marketly_mobile/core/widgets/custom_button_login.dart';
 import 'package:marketly_mobile/modules/auth_screens/forgot_password_screen.dart';
 import 'package:marketly_mobile/modules/auth_screens/signup_screen.dart';
-import 'package:marketly_mobile/modules/settings/profile_screen.dart';
+import 'package:marketly_mobile/modules/home/bottom_navigation_bar_screen.dart';
+import 'package:marketly_mobile/modules/settings/setting_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String screenRoute = '/login_screen';
@@ -68,10 +69,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: 64,
                 height: 64,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(colors: [kMaincolor1, kMaincolor2]),
-                  borderRadius: const BorderRadiusDirectional.only(
-                    bottomStart: Radius.circular(20),
-                    topEnd: Radius.circular(20),
+                  gradient: const LinearGradient(
+                      colors: [AppColor.kMaincolor1, AppColor.kMaincolor2]),
+                  borderRadius: BorderRadiusDirectional.only(
+                    bottomStart: Radius.circular(20.r),
+                    topEnd: Radius.circular(20.r),
                   ),
                 ),
                 child: const Image(
@@ -97,20 +99,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 errorText: _errorEmailValue,
                 paddingBottom: 19,
                 controller: _emailTextEditingController,
-                minLines: null,
-                maxLines: null,
-                expands: true,
+                // minLines: null,
+                // maxLines: null,
+                // expands: true,
                 constraints: _errorEmailValue != null ? 95 : 70,
                 prefix: const Icon(Icons.mail_outline),
               ),
               AppTextFiled(
                 keyboard: TextInputType.visiblePassword,
                 hint: 'Password',
-                constraints: _errorPassWordValue != null ? 95 : 70,
-                maxLines: 1,
-                minLines: 1,
-                expands: false,
+                constraints: _errorPassWordValue != null ?95 : 70,
                 errorText: _errorPassWordValue,
+                controller: _passwordTextEditingController,
+                obscure: _obscure,
                 suffix: _obscure
                     ? Icons.visibility_outlined
                     : Icons.visibility_off_outlined,
@@ -120,8 +121,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     _obscure = !_obscure;
                   });
                 },
-                controller: _passwordTextEditingController,
-                obscure: _obscure,
               ),
               const SizedBox(
                 height: 5,
@@ -134,9 +133,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Text(
                   'Forgot Password?',
                   style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w600,
-                      color: bottun2),
+                      color: AppColor.bottun2),
                 ),
               ),
               const SizedBox(
@@ -153,8 +152,8 @@ class _LoginScreenState extends State<LoginScreen> {
               Text('Or',
                   style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 12,
-                      color: bottun2)),
+                      fontSize: 12.sp,
+                      color: AppColor.bottun2)),
               const SizedBox(
                 height: 10,
               ),
@@ -181,9 +180,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           recognizer: _tapGestureRecognizer,
                           text: ' Sign Up',
                           style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               fontWeight: FontWeight.bold,
-                              color: kMaincolor1))
+                              color: AppColor.kMaincolor1))
                     ]),
               ),
             ],
@@ -229,6 +228,6 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void login() {
-    Get.toNamed(ProfileScreen.screenRoute);
+    Get.toNamed(SettingScreen.screenRoute);
   }
 }

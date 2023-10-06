@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:marketly_mobile/core/constant.dart';
+import 'package:marketly_mobile/core/style/app_colors.dart';
 class CustomButtonLogin extends StatelessWidget {
   const CustomButtonLogin({
     required this.image,

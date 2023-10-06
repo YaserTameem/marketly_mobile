@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:marketly_mobile/core/constant.dart';
+import 'package:marketly_mobile/core/style/app_colors.dart';
 import 'package:marketly_mobile/core/widgets/app_text_filed.dart';
 import 'package:marketly_mobile/core/widgets/custom_bottom_button.dart';
 import 'package:marketly_mobile/core/widgets/custom_button_login.dart';
@@ -66,10 +67,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: 64,
                   decoration: BoxDecoration(
                       gradient:
-                          LinearGradient(colors: [kMaincolor1, kMaincolor2]),
-                      borderRadius: const BorderRadiusDirectional.only(
-                          bottomStart: Radius.circular(20),
-                          topEnd: Radius.circular(20))),
+                          const LinearGradient(colors: [AppColor.kMaincolor1, AppColor.kMaincolor2]),
+                      borderRadius:  BorderRadiusDirectional.only(
+                          bottomStart: Radius.circular(20.r),
+                          topEnd: Radius.circular(20.r))),
                   child: const Image(
                     image: AssetImage('images/logo2.png'),
                   ),
@@ -88,10 +89,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   errorText: _errorNameValue,
                   paddingBottom: 12,
                   prefix: const Icon(Icons.mode_edit_outline),
-                  minLines: null,
-                  maxLines: null,
-                  expands: true,
-                  constraints: _errorNameValue != null ? 81 : 56,
+                  // minLines: null,
+                  // maxLines: null,
+                  // expands: true,
+                  constraints: _errorNameValue != null ? 95 : 70,
                 ),
                 AppTextFiled(
                   keyboard: TextInputType.emailAddress,
@@ -99,30 +100,30 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   errorText: _errorEmailValue,
                   paddingBottom: 12,
                   controller: _emailTextEditingController,
-                  minLines: null,
-                  maxLines: null,
-                  expands: true,
-                  constraints: _errorEmailValue != null ? 81 : 56,
+                  // minLines: null,
+                  // maxLines: null,
+                  // expands: true,
+                  constraints: _errorEmailValue != null ?95 : 70,
                   prefix: const Icon(Icons.mail_outline),
                 ),
                 AppTextFiled(
                   hint: 'Phone',
                   controller: _phoneTextEditingController,
                   keyboard: TextInputType.number,
-                  minLines: null,
-                  maxLines: null,
-                  expands: true,
-                  constraints: 56,
+                  // minLines: null,
+                  // maxLines: null,
+                  // expands: true,
+                  constraints: 70,
                   paddingBottom: 12,
                   prefix:const Icon( Icons.phone_outlined),
                 ),
                 AppTextFiled(
                   keyboard: TextInputType.visiblePassword,
                   hint: 'Password',
-                  constraints: _errorPassWordValue != null ? 81 : 56,
-                  maxLines: 1,
-                  minLines: 1,
-                  expands: false,
+                  constraints: _errorPassWordValue != null ?95 : 70,
+                  // maxLines: 1,
+                  // minLines: 1,
+                  // expands: false,
                   errorText: _errorPassWordValue,
                   suffix: _obscure
                       ? Icons.visibility_outlined
@@ -150,8 +151,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Text('Or',
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
-                        fontSize: 12,
-                        color: bottun2)),
+                        fontSize: 12.sp,
+                        color: AppColor.bottun2)),
                 const SizedBox(
                   height: 10,
                 ),
@@ -219,6 +220,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void login() {
-   Get.toNamed( HomeScreen.screenRoute);
+   Get.toNamed(SearchScreen.screenRoute);
   }
 }

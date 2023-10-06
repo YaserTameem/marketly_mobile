@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:marketly_mobile/core/constant.dart';
+import 'package:marketly_mobile/core/style/app_colors.dart';
 
 class AppTextFiled extends StatelessWidget {
   const AppTextFiled({
@@ -9,13 +9,17 @@ class AppTextFiled extends StatelessWidget {
     this.suffix,
     this.prefix,
     this.onPress,
+    this.contentPaddingBottom=22,
+    this.contentPaddingEnd=50,
+    this.contentPaddingStart=20,
+    this.contentPaddingTop=22,
     required this.controller,
     this.obscure = false,
     super.key,
     this.maxLines = 1,
     this.minLines = 1,
     this.expands = false,
-    this.constraints = 70,
+    this.constraints = 0,
     required this.keyboard,
     this.errorText,
   });
@@ -32,6 +36,10 @@ class AppTextFiled extends StatelessWidget {
   final int? maxLines;
   final bool expands;
   final double constraints;
+  final double contentPaddingStart;
+  final double contentPaddingEnd;
+  final double contentPaddingTop;
+  final double contentPaddingBottom;
   final TextInputType keyboard;
 
   @override
@@ -48,7 +56,12 @@ class AppTextFiled extends StatelessWidget {
         expands: expands,
         decoration: InputDecoration(
           errorText: errorText,
-          contentPadding:  EdgeInsetsDirectional.symmetric(horizontal: 58.w),
+          contentPadding:  EdgeInsetsDirectional.only(
+            start: contentPaddingStart,
+            top: contentPaddingTop,
+            bottom: contentPaddingBottom,
+            end: contentPaddingEnd,
+          ),
           constraints: BoxConstraints(maxHeight: constraints.h),
           hintText: hint,
           hintStyle: input,
@@ -71,14 +84,22 @@ class AppTextFiled extends StatelessWidget {
             highlightColor: Colors.transparent,
             splashColor: Colors.transparent,
             onPressed: onPress,
-            icon: Icon(suffix ,size: ScreenUtil().setSp(24),),
+            icon: Icon(
+              suffix,
+              color:AppColor.bottunTextColor,
+              size: ScreenUtil().setSp(24),
+            ),
           ),
-          prefixIcon:prefix,
-          prefixIconColor: bottunTextColor,
+          prefixIcon: prefix,
+          prefixIconColor: AppColor.bottunTextColor,
           filled: true,
           fillColor: const Color(0xFFF9FAFB),
         ),
-        style: input,
+        style: TextStyle(
+          fontSize: 16.sp,
+          fontWeight: FontWeight.w600,
+          color: AppColor.bottunTextColor,
+        ),
         textInputAction: TextInputAction.go,
       ),
     );

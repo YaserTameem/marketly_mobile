@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:marketly_mobile/core/constant.dart';
+import 'package:marketly_mobile/core/style/app_colors.dart';
 
 class VerifyCodeScreen extends StatefulWidget {
   static const String screenRoute = '/verifyCodeScreen';
@@ -27,15 +27,15 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
           width: 20,
           // height: 20,
           decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [kMaincolor1, kMaincolor2]),
+              gradient: const LinearGradient(colors: [AppColor.kMaincolor1, AppColor.kMaincolor2]),
               borderRadius: BorderRadiusDirectional.circular(30)),
           child: IconButton(
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
               icon: Icon(
                 Icons.arrow_back_ios_new_outlined,
-                size:22,
-                color: bottunColor,
+                size:22.sp,
+                color: AppColor.bottunColor,
               ),
               onPressed: () {
                Get.back();
@@ -45,7 +45,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
         title: Text(
           'New Password',
           style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 20, color: bottun2),
+              fontWeight: FontWeight.bold, fontSize: 20.sp, color: AppColor.bottun2),
         ),
       ),
       body: Padding(
@@ -57,15 +57,15 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
               width: 64,
               height: 64,
               decoration: BoxDecoration(
-                  gradient: LinearGradient(colors: [kMaincolor1, kMaincolor2]),
-                  borderRadius: const BorderRadiusDirectional.only(
-                      bottomStart: Radius.circular(20),
-                      topEnd: Radius.circular(20))),
+                  gradient: const LinearGradient(colors: [AppColor.kMaincolor1, AppColor.kMaincolor2]),
+                  borderRadius:  BorderRadiusDirectional.only(
+                      bottomStart: Radius.circular(20.r),
+                      topEnd: Radius.circular(20.r))),
               child: const Image(
                 image: AssetImage('images/logo2.png'),
               ),
             ),
-            Divider(),
+            const Divider(),
             Text(
               textAlign: TextAlign.center,
               'The confimation code was \n sent via email',

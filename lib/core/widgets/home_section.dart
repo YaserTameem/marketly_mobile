@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:marketly_mobile/core/constant.dart';
+import 'package:marketly_mobile/core/style/app_colors.dart';
 class HomeSection extends StatelessWidget {
   const HomeSection({
     required this.title,
@@ -28,7 +28,7 @@ final String title;
               style: TextStyle(
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w400,
-                  color: kMaincolor1),
+                  color: AppColor.kMaincolor1),
             ),
           ),
         ],

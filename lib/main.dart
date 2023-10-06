@@ -7,9 +7,13 @@ import 'package:marketly_mobile/modules/auth_screens/login_screen.dart';
 import 'package:marketly_mobile/modules/auth_screens/new_password_screen.dart';
 import 'package:marketly_mobile/modules/auth_screens/signup_screen.dart';
 import 'package:marketly_mobile/modules/auth_screens/verify_%20code_screen.dart';
+import 'package:marketly_mobile/modules/cart/cart_screen.dart';
 import 'package:marketly_mobile/modules/catogories/search_screen.dart';
+import 'package:marketly_mobile/modules/favourite/favourite_screen.dart';
+import 'package:marketly_mobile/modules/home/bottom_navigation_bar_screen.dart';
 import 'package:marketly_mobile/modules/home/home_screen.dart';
 import 'package:marketly_mobile/modules/settings/profile_screen.dart';
+import 'package:marketly_mobile/modules/settings/setting_screen.dart';
 import 'package:marketly_mobile/modules/splash_screens/onboarding_screen.dart';
 import 'package:marketly_mobile/modules/splash_screens/splash_screen.dart';
 
@@ -63,6 +67,18 @@ class MyApp extends StatelessWidget {
             GetPage(
                 name: VerifyCodeScreen.screenRoute,
                 page: () => const VerifyCodeScreen()),
+            GetPage(
+                name: BottomNavigationBarScreen.screenRoute,
+                page: () =>  const BottomNavigationBarScreen()),
+            GetPage(
+                name: CartScreen.screenRoute,
+                page: () =>  const CartScreen()),
+            GetPage(
+                name: FavouriteScreen.screenRoute,
+                page: () =>  const FavouriteScreen()),
+            GetPage(
+                name: SettingScreen.screenRoute,
+                page: () =>  const SettingScreen()),
           ],
         );
       },

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:marketly_mobile/core/constant.dart';
+import 'package:marketly_mobile/core/style/app_colors.dart';
 
 class CustomBottomButton extends StatelessWidget {
   const CustomBottomButton({
@@ -28,8 +28,8 @@ final void Function() ontap;
               )
             ],
               borderRadius: BorderRadius.circular(99),
-              gradient: LinearGradient(
-                  colors: [kMaincolor1, kMaincolor2], stops: const [.3, 9])),
+              gradient: const LinearGradient(
+                  colors: [AppColor.kMaincolor1, AppColor.kMaincolor2], stops: [.3, 9])),
           child: Text(
             title,
             textAlign: TextAlign.center,

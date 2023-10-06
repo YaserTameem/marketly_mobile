@@ -11,8 +11,6 @@ class HomeCustomCard extends StatefulWidget {
   final String title;
   final String price;
   final String? image;
-
-
   @override
   State<HomeCustomCard> createState() => _HomeCustomCardState();
 }
@@ -29,7 +27,6 @@ class _HomeCustomCardState extends State<HomeCustomCard> {
       }
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -61,34 +58,37 @@ class _HomeCustomCardState extends State<HomeCustomCard> {
             Row(
 
               children: [
-                Column(
+                Padding(
+                  padding: const EdgeInsetsDirectional.symmetric(vertical: 20),
+                  child: Column(
 
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                     widget.title,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14.sp,
-                          color: const Color(0XFF090F24)),
-                    ),
-                    SizedBox(height: 4.h,),
-                    RatingBar.builder(
-                        initialRating: 3,
-                        itemSize: 18.sp,
-                        minRating: 1,
-                        allowHalfRating: true,
-                        itemBuilder:(context,_)=>const Icon(Icons.star,color: Colors.amber) ,
-                        onRatingUpdate: (rating){}),
-                    SizedBox(height: 4.h,),
-                    Text(
-                      '\$${widget.price}',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14.sp,
-                          color: const Color(0XFF090F24)),
-                    ),
-                  ],
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                       widget.title,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14.sp,
+                            color: const Color(0XFF090F24)),
+                      ),
+                      SizedBox(height: 4.h,),
+                      RatingBar.builder(
+                          initialRating: 3,
+                          itemSize: 18.sp,
+                          minRating: 1,
+                          allowHalfRating: true,
+                          itemBuilder:(context,_)=>const Icon(Icons.star,color: Colors.amber) ,
+                          onRatingUpdate: (rating){}),
+                      SizedBox(height: 4.h,),
+                      Text(
+                        '\$${widget.price}',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14.sp,
+                            color: const Color(0XFF090F24)),
+                      ),
+                    ],
+                  ),
                 ),
                 Container(
                   margin: EdgeInsetsDirectional.only(start: 90.w),
@@ -108,6 +108,7 @@ class _HomeCustomCardState extends State<HomeCustomCard> {
                         ? const Icon(Icons.favorite)
                         : const Icon(Icons.favorite_outline),
                     color: const Color(0xFFFF4343),
+                      // const Color(0xFFFF4343),
                   ),
                 ),
               ],

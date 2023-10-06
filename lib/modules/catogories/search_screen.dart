@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart ';
-import 'package:marketly_mobile/core/constant.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:marketly_mobile/core/style/app_colors.dart';
 import 'package:marketly_mobile/core/widgets/app_text_filed.dart';
 import 'package:marketly_mobile/core/widgets/product_card.dart';
 
@@ -40,9 +42,11 @@ class _SearchScreenState extends State<SearchScreen> {
               hint: 'Search Product',
               controller: _searchTextEditingController,
               keyboard: TextInputType.text,
-              minLines: null,
-              maxLines: null,
-              expands: true,
+              // minLines: null,
+              // maxLines: null,
+              // expands: true,
+              contentPaddingBottom:0,
+              contentPaddingTop: 0,
               constraints: 44,
               prefix: const Icon(
                 Icons.search_outlined,
@@ -55,14 +59,16 @@ class _SearchScreenState extends State<SearchScreen> {
           width: 20,
           // height: 20,
           decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [kMaincolor1, kMaincolor2]),
+              gradient: const LinearGradient(colors: [AppColor.kMaincolor1, AppColor.kMaincolor2]),
               borderRadius: BorderRadiusDirectional.circular(30)),
           child: IconButton(
               icon: const Icon(
                 Icons.arrow_back_ios_new_outlined,
                 color: Colors.white,
               ),
-              onPressed: () {}),
+              onPressed: () {
+                Get.back();
+              }),
         ),
         actions: [
           Container(
@@ -70,7 +76,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 const EdgeInsetsDirectional.only(top: 10, end: 10, bottom: 5),
             width: 51,
             decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [kMaincolor1, kMaincolor2]),
+                gradient: const LinearGradient(colors: [AppColor.kMaincolor1, AppColor.kMaincolor2]),
                 borderRadius: BorderRadiusDirectional.circular(30)),
             child: IconButton(
                 icon: const Icon(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:marketly_mobile/core/constant.dart';
+import 'package:marketly_mobile/core/style/app_colors.dart';
 
 class ProductCard extends StatefulWidget {
   const ProductCard({
@@ -46,7 +46,8 @@ class _ProductCardState extends State<ProductCard> {
                 offset: const Offset(24, 40),
                 color: const Color(0xFF22292E).withOpacity(0.1),
                 blurRadius: 80.r)
-          ]),
+          ]
+      ),
 
       child: Padding(
         padding: const EdgeInsetsDirectional.all(8),
@@ -72,7 +73,7 @@ class _ProductCardState extends State<ProductCard> {
                   height: 26.h,
                   decoration: BoxDecoration(
                       gradient:
-                          LinearGradient(colors: [kMaincolor1, kMaincolor2]),
+                          const LinearGradient(colors: [AppColor.kMaincolor1, AppColor.kMaincolor2]),
                       borderRadius: BorderRadiusDirectional.circular(9.r)),
                   child: Text(
                     widget.dicCount,

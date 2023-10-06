@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:marketly_mobile/core/constant.dart';
+import 'package:marketly_mobile/core/style/app_colors.dart';
 import 'package:marketly_mobile/core/widgets/app_text_filed.dart';
 import 'package:marketly_mobile/core/widgets/custom_bottom_button.dart';
 import 'package:marketly_mobile/modules/auth_screens/new_password_screen.dart';
@@ -44,15 +45,16 @@ class _ForgotPassWordScreenState extends State<ForgotPassWordScreen> {
           width: 20,
           // height: 20,
           decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [kMaincolor1, kMaincolor2]),
+              gradient: const LinearGradient(
+                  colors: [AppColor.kMaincolor1, AppColor.kMaincolor2]),
               borderRadius: BorderRadiusDirectional.circular(30)),
           child: IconButton(
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
               icon: Icon(
                 Icons.arrow_back_ios_new_outlined,
-                size: 22,
-                color: bottunColor,
+                size: 22.sp,
+                color: AppColor.bottunColor,
               ),
               onPressed: () {
                 Get.back();
@@ -62,7 +64,9 @@ class _ForgotPassWordScreenState extends State<ForgotPassWordScreen> {
         title: Text(
           'Forgot Password?',
           style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 20, color: bottun2),
+              fontWeight: FontWeight.bold,
+              fontSize: 20.sp,
+              color: AppColor.bottun2),
         ),
       ),
       body: Padding(
@@ -70,14 +74,15 @@ class _ForgotPassWordScreenState extends State<ForgotPassWordScreen> {
         child: Column(
           children: [
             Container(
-              margin: const EdgeInsetsDirectional.only(bottom: 16, top: 60),
-              width: 64,
-              height: 64,
+              margin: EdgeInsetsDirectional.only(bottom: 16.h, top: 60.h),
+              width: 64.w,
+              height: 64.h,
               decoration: BoxDecoration(
-                  gradient: LinearGradient(colors: [kMaincolor1, kMaincolor2]),
-                  borderRadius: const BorderRadiusDirectional.only(
-                      bottomStart: Radius.circular(20),
-                      topEnd: Radius.circular(20))),
+                  gradient: const LinearGradient(
+                      colors: [AppColor.kMaincolor1, AppColor.kMaincolor2]),
+                  borderRadius: BorderRadiusDirectional.only(
+                      bottomStart: Radius.circular(20.r),
+                      topEnd: Radius.circular(20.r))),
               child: const Image(
                 image: AssetImage('images/logo2.png'),
               ),
@@ -96,9 +101,9 @@ class _ForgotPassWordScreenState extends State<ForgotPassWordScreen> {
               errorText: _errorEmailValue,
               paddingBottom: 19,
               controller: _emailTextEditingController,
-              minLines: null,
-              maxLines: null,
-              expands: true,
+              // minLines: null,
+              // maxLines: null,
+              // expands: true,
               constraints: _errorEmailValue != null ? 95 : 70,
               prefix: const Icon(Icons.mail_outline),
             ),

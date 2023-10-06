@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:marketly_mobile/core/constant.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:marketly_mobile/core/style/app_colors.dart';
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton({
@@ -14,7 +15,7 @@ final void Function() onPress;
     return TextButton(
       onPressed: onPress,
       child: Text(title, style: TextStyle(
-      fontSize: 16, fontWeight: FontWeight.w600, color: heading )),
+      fontSize: 16.sp, fontWeight: FontWeight.w600, color: AppColor.heading )),
     );
   }
 }
